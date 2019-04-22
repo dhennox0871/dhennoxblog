@@ -1,0 +1,2 @@
+Dokumen ini dibuat untuk mencatat perkembangan yg terjadi :
+-perubahan index yg html menjadi php
