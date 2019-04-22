@@ -1,8 +1,156 @@
-<html>
-<head>
-<title>New Page</title>
-</head>
-<body>
-Selamat Datang
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Pendaftaran Anggota Baru</title>
+  </head>
+  <body>
+    <h1>Selamat Datang Anggota Baru :</h1>
+<form id="form1" name="form1" method="post" action="simpan.php">
+  <table border="0" cellpadding="5px" cellspacing="5px" width="600px">
+    <tr>
+      <td>No. ID </td>
+      <td>: </td><td>  
+      <?php
+	include "konek.php";
+	$squrut=mysqli_query($konek,"select * from member order by kode desc");
+	$nourut=mysqli_fetch_array($squrut);
+	$kdset=strrev(substr(strrev("0000".($nourut['kode']+1)),0,8));
+	echo $kdset;
+	?>
+      <input type="hidden" name="kode" value="<?php echo $kdset;?>"/>
+		</td><td><input name="cool3" type="checkbox" value="1" />Cool3</td>
+    </tr>
+    <tr>
+      <td>Nama </td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="nama" size="50" required onBlur="ceknama()"/>
+        <span id="ketnama" class="alert-danger"></span>
+        </td>
+    </tr>
+     <tr>
+      <td valign="top">Departemen </td>
+      <td valign="top">:</td><td colspan="2"><table width="100%"><tr><td valign="top">
+      <?php
+	  	include"konek.php";
+	  	$sqdept=mysqli_query($konek,"select * from dept order by kode");
+		$jdp=mysqli_num_rows($sqdept);
+		$x=1;
+		while($dtdept=mysqli_fetch_array($sqdept))
+		{
+			echo"<input type=checkbox name=dept[] value='".$dtdept['kode']."'>".$dtdept['dept']."<br>";
+			if($x==intval($jdp/2)+1)
+			{
+				echo"</td><td valign=top>";
+			}
+			$x++;
+		}
+	  ?></td></tr></table>
+        </td>
+     </tr>
+    <tr>
+      <td>Tempat Lahir </td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="tmplahir" size="30" />
+        </td>
+    </tr>
+    <tr>
+      <td>Tgl Lahir </td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="tglahir" size="30" id="tglahir" />
+        </td>
+    </tr>
+    <tr>
+      <td valign="top">Alamat </td>
+      <td valign="top">:</td><td colspan="2">
+		<textarea name="alamat" cols="50" rows="4" ></textarea>
+        </td>
+    </tr>
+    <tr>
+      <td>Gol. Darah </td>
+      <td>:</td><td>
+		<input type="text" name="darah" size="5" /></td><td>
+        Jenis Kelamin : 
+          <label>
+            <input type="radio" name="jkel" value="1" id="jkel_0" required />
+            Pria</label>
+          <label>
+            <input type="radio" name="jkel" value="2" id="jkel_1" required />
+            Wanita</label>
+</td>
+    </tr>
+    <tr>
+      <td>Status Pernikahan</td>
+      <td>:</td><td colspan="2">
+        <select name="stnikah">
+          <option value="0">- pilih -</option>
+          <option value="1">Belum Menikah</option>
+          <option value="2">Menikah</option>
+          <option value="3">Duda</option>
+          <option value="4">Janda</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+      <td>No. Telpon</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="telpon" size="30"/>
+        </td>
+    </tr>
+    <tr>
+      <td>No. Handphone</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="hape" size="30"/>
+        </td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="email" size="30"/>
+        </td>
+    </tr>
+    <tr>
+      <td>Nama Ayah</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="ayah" size="30"/>
+        </td>
+    </tr>
+    <tr>
+      <td>Nama Ibu</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="ibu" size="30"/>
+        </td>
+    </tr>
+    <tr>
+      <td>Anggota Cool</td>
+      <td>:</td><td colspan="2">
+        <input type="text" name="anggotacool" size="30"  />
+        </td>
+    </tr>
+    <tr>
+      <td>Cetak Kartu Jemaat :</td>
+      <td>:</td><td colspan="2">
+        <label><input type="radio" name="kaj" value="0" checked/>Tidak</label>
+        <label><input type="radio" name="kaj" value="1"/>Ya</label>
+        <label><input type="radio" name="kaj" value="2"/>Sudah</label>                
+        </td>
+    </tr>
+    <tr>
+        <td><input name="submit" type="submit" value="Save" class="btn btn-primary" style="font-size:small" /></td>
+        <td colspan="3">&nbsp;</td>
+	</tr>
+  </table>
+</form>    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
 </html>
