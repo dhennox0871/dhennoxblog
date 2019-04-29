@@ -1,7 +1,7 @@
 <?php
 $host = "dhenserver.database.windows.net";
     $user = "akubos";
-    $pass = "wislalibos";
+    $pass = "daybyday0871#";
     $db = "member";
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
