@@ -55,6 +55,9 @@
 			  </div>
 		  </div>
 	  </div>
+	  <?php
+	  $konek = new PDO("sqlsrv:server = tcp:dhenserver.database.windows.net,1433; Database = member", "akubos", "wislalibos");
+	  ?>
 	  <div class="container">
 		  <div class="row">
 		  	<div class="col-md-12">
@@ -67,11 +70,11 @@
 						<th>Email</th>
 					</thead>
 					<tbody>
-						<th>Kode</th>
-						<th>Nama</th>
-						<th>Alamat</th>
-						<th>Kota</th>
-						<th>Email</th>
+						<td>Kode</td>
+						<td>Nama</td>
+						<td>Alamat</td>
+						<td>Kota</td>
+						<td>Email</td>
 					</tbody>
 				</table>
 			  </div>
