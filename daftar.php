@@ -1,7 +1,3 @@
-<?php
-session_start();
-include "konek.php";
-?>
 <!doctype html>
 <html lang="en">
   <head>
