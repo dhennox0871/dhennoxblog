@@ -56,7 +56,7 @@
 		  </div>
 	  </div>
 	  <?php
-	  $konek = new PDO("sqlsrv:server = tcp:dhenserver.database.windows.net,1433; Database = member", "akubos", "wislalibos");
+	  include "konek.php";
 	  ?>
 	  <div class="container">
 		  <div class="row">
