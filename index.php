@@ -68,7 +68,7 @@
 						<th>Nama</th>
 						<th>Alamat</th>
 						<th>Kota</th>
-						<th>Email</th>
+						<th>Tanggal</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -82,7 +82,7 @@
 						<td><?php echo $row['Name'];?></td>
 						<td><?php echo $row['Address1'];?></td>
 						<td><?php echo $row['City'];?></td>
-						<td><?php echo $row['Email'];?></td>
+						<td><?php echo date('d-M-Y',$row['entrydate']);?></td>
 						</tr>
 						<?php
 						}
