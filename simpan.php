@@ -8,5 +8,5 @@ $email=$_POST['email'];
 $sqdp="insert into mastercust values('$kode','$nama','$alamat','$kota','$email')";
 $save=$conn->prepare($sqdp);
 $save->execute();
-header("location:index.html");	
+header("location:index.php");	
 ?>
