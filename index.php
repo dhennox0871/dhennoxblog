@@ -82,7 +82,7 @@
 						<td><?php echo $row['Name'];?></td>
 						<td><?php echo $row['Address1'];?></td>
 						<td><?php echo $row['City'];?></td>
-						<td><?php echo date('d-M-Y',$row['entrydate']);?></td>
+						<td><?php echo date('d-M-Y',strtotime($row['entrydate']));?></td>
 						</tr>
 						<?php
 						}
