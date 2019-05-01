@@ -63,18 +63,29 @@
 		  	<div class="col-md-12">
 				<table class="table table-bordered">
 					<thead>
+						<tr>
 						<th>Kode</th>
 						<th>Nama</th>
 						<th>Alamat</th>
 						<th>Kota</th>
 						<th>Email</th>
+						</tr>
 					</thead>
 					<tbody>
+						<?php
+						$konek->query("select * from member");
+						
+						?>
+						<tr>
 						<td>Kode</td>
 						<td>Nama</td>
 						<td>Alamat</td>
 						<td>Kota</td>
 						<td>Email</td>
+						</tr>
+						<?php
+						
+						?>
 					</tbody>
 				</table>
 			  </div>
