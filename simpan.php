@@ -5,7 +5,7 @@ $nama=$_POST['nama'];
 $alamat=$_POST['alamat'];
 $kota=$_POST['kota'];
 $email=$_POST['email'];
-$tgl=date();
+$tgl=date('Y-M-d',now());
 $sqdp="insert into mastercust values('$kode','$nama','$alamat','$kota','$email','$tgl')";
 $save=$conn->prepare($sqdp);
 $save->execute();
