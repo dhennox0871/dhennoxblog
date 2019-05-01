@@ -78,11 +78,11 @@
 						foreach($hasil as $row){
 						?>
 						<tr>
-						<td>Kode</td>
-						<td>Nama</td>
-						<td>Alamat</td>
-						<td>Kota</td>
-						<td>Email</td>
+						<td><?php echo $row['CustCode'];?></td>
+						<td><?php echo $row['Name'];?></td>
+						<td><?php echo $row['Address1'];?></td>
+						<td><?php echo $row['City'];?></td>
+						<td><?php echo $row['Email'];?></td>
 						</tr>
 						<?php
 						}
