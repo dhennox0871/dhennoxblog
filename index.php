@@ -73,8 +73,9 @@
 					</thead>
 					<tbody>
 						<?php
-						$konek->query("select * from member");
-						
+						$data=$conn->query("select * from mastercust order by custid");
+						$hasil=$data->fetchall();
+						foreach($hasil as $row){
 						?>
 						<tr>
 						<td>Kode</td>
@@ -84,7 +85,7 @@
 						<td>Email</td>
 						</tr>
 						<?php
-						
+						}
 						?>
 					</tbody>
 				</table>
