@@ -6,6 +6,7 @@ $alamat=$_POST['alamat'];
 $kota=$_POST['kota'];
 $email=$_POST['email'];
 $sqdp="insert into mastercust values('$kode','$nama','$alamat','$kota','$email')";
-mysqli_query($konek,$sqdp);
+$save=$conn->prepare($sqdp);
+$save->execute();
 header("location:index.html");	
 ?>
